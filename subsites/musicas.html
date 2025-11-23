@@ -27,7 +27,6 @@
 
         <main class="content-bg-songs player-page">
             <section class="album-player">
-
                 <div class="album-header">
                 <img src="../img/Hawaii_Part-COVER.jpg" alt="Hawaii: Part II Cover" class="album-cover">
 
@@ -95,8 +94,11 @@
                         <span class="track-length">7:00</span>
                     </li>
                 </ol>
-
             </section>
+
+            <div id="lyricsBox" class="lyrics-box">
+                <p id="lyricsText">–</p>
+            </div>
 
             <div class="bottom-player" id="bottomPlayer">
                 <div class="player-info">
@@ -126,9 +128,13 @@
                     </div>
                 </div>
 
+                <div class="player-lyrics-container">
+                    <button id="btnLyrics">Letras</button>
+                </div>
+
                 <div class="player-volume">
                     <input type="range" id="volumeSlider" min="0" max="100" value="80">
-                     <div class="volume-fill"></div>
+                    <div class="volume-fill"></div>
                 </div>
             </div>
         </main>

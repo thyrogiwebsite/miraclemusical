@@ -73,25 +73,41 @@ function updateActiveTrackHighlight() {
   }
 }
 
+const btnLyrics = document.getElementById("btnLyrics");
+const lyricsBox = document.getElementById("lyricsBox");
+const lyricsText = document.getElementById("lyricsText");
+
+btnLyrics.addEventListener("click", () => {
+    lyricsBox.classList.toggle("show");
+});
+
 function playTrack(index) {
-  const track = tracks[index];
-  if (!track) {
-    console.warn("Track not loaded yet or index invalid:", index, tracks);
-    return;
-  }
+    const track = tracks[index];
+    if (!track) return;
 
-  currentIndex = index;
-  audio.src = track.file;
-  audio.currentTime = 0;
-  audio.play();
+    currentIndex = index;
+    audio.src = track.file;
+    audio.currentTime = 0;
+    audio.play();
 
-  bottomPlayer.classList.add("show");
+    bottomPlayer.classList.add("show");
+    playerSongTitle.textContent = track.title;
+    playerSongArtist.textContent = track.artists;
+    btnPlayPause.textContent = "⏸";
 
-  playerSongTitle.textContent = track.title;
-  playerSongArtist.textContent = track.artists;
-  btnPlayPause.textContent = "⏸";
+    // Update lyrics dynamically
+    // inside playTrack function
+    if (track.lyrics) {
+        lyricsText.innerHTML = track.lyrics.replace(/\n/g, "<br>");
+    } else {
+        lyricsText.textContent = "No lyrics available.";
+    }
 
-  updateActiveTrackHighlight();
+
+    updateActiveTrackHighlight();
+
+    // Hide lyrics box when changing song
+    lyricsBox.classList.remove("show");
 }
 
 function togglePlayPause() {
