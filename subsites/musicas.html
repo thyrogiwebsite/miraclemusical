@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="icon" type="image/x-icon" href="img/Hawaii_Part-ICON.png">
+        <title>HAWAII: PART II</title>
+        <link rel="stylesheet" href="../styles/css.css">
+    </head>
+    <body>
+        <header>
+            <span class="header-span">
+                <div class="logo-container">
+                    <p class="logo-text stroke">Hawaii: Part II</p>
+                    <p class="logo-text fill">Hawaii: Part II</p>
+                    <img class="logo" src="../img/Hawaii_Part-LOGO.png" alt="Hawaii: Part II - Logo">
+                </div>
+                <div class="header-options-container">
+                    <div class="header-options"><a href="../index.html" data-text="Home">Home</a></div>
+                    <div class="header-options"><a href="musicas.html" data-text="Músicas">Músicas</a></div> <!-- https://youtube.com/playlist?list=PL8up6P1ZhMoYxfij5z1jN7cPppDB7LRcp&si=tYAI5bENB9QE3vpV -->
+                    <div class="header-options"><a href="extras.html" data-text="Extras">Extras</a></div>
+                    <div class="header-options"><a href="sobre.html" data-text="Sobre">Sobre</a></div>
+                </div>
+                <img class="moon" src="../img/Hawaii_Part-MOON.png" alt="White Ball">
+            </span>
+        </header>
+
+        <main class="content-bg-songs player-page">
+            <section class="album-player">
+
+                <!-- TOP: COVER + INFO -->
+                <div class="album-header">
+                <img src="../img/Hawaii_Part-COVER.jpg" alt="Hawaii: Part II Cover" class="album-cover">
+
+                    <div class="album-info">
+                        <h1 class="album-title">Hawaii: Part II</h1>
+                        <div class="album-artist">Miracle Musical</div>
+                        <div class="album-meta">11 faixas • 45:34</div>
+                    </div>
+                </div>
+
+                <!-- TRACKLIST -->
+                <ol class="tracklist">
+                <!-- each li gets a data-index that matches the JS array -->
+                    <li class="track-row" data-index="0">
+                        <span class="track-number">1</span>
+                        <span class="track-title">Introduction to the Snow</span>
+                        <span class="track-length">1:41</span>
+                    </li>
+                    <li class="track-row" data-index="1">
+                        <span class="track-number">2</span>
+                        <span class="track-title">Isle Unto Thyself</span>
+                        <span class="track-length">3:47</span>
+                    </li>
+                    <li class="track-row" data-index="2">
+                        <span class="track-number">3</span>
+                        <span class="track-title">Black Rainbows</span>
+                        <span class="track-length">2:29</span>
+                    </li>
+                    <li class="track-row" data-index="3">
+                        <span class="track-number">4</span>
+                        <span class="track-title">White Ball</span>
+                        <span class="track-length">3:35</span>
+                    </li>
+                    <li class="track-row" data-index="4">
+                        <span class="track-number">5</span>
+                        <span class="track-title">Murders</span>
+                        <span class="track-length">3:42</span>
+                    </li>
+                    <li class="track-row" data-index="5">
+                        <span class="track-number">6</span>
+                        <span class="track-title">宇宙ステーションのレベル7</span>
+                        <span class="track-length">3:23</span>
+                    </li>
+                    <li class="track-row" data-index="6">
+                        <span class="track-number">7</span>
+                        <span class="track-title">The Mind Electric</span>
+                        <span class="track-length">6:13</span>
+                    </li>
+                    <li class="track-row" data-index="7">
+                        <span class="track-number">8</span>
+                        <span class="track-title">Labyrinth</span>
+                        <span class="track-length">2:32</span>
+                    </li>
+                    <li class="track-row" data-index="8">
+                        <span class="track-number">9</span>
+                        <span class="track-title">Time Machine</span>
+                        <span class="track-length">4:12</span>
+                    </li>
+                    <li class="track-row" data-index="9">
+                        <span class="track-number">10</span>
+                        <span class="track-title">Stranded Lullaby</span>
+                        <span class="track-length">3:40</span>
+                    </li>
+                    <li class="track-row" data-index="10">
+                        <span class="track-number">11</span>
+                        <span class="track-title">Dream Sweet in Sea Major</span>
+                        <span class="track-length">7:00</span>
+                    </li>
+                </ol>
+
+            </section>
+
+            <!-- BOTTOM PLAYER (only visible when a song is active) -->
+            <div class="bottom-player" id="bottomPlayer">
+                <div class="player-info">
+                    <span id="playerSongTitle">–</span>
+                    <span id="playerSongArtist">Miracle Musical</span>
+                </div>
+
+                <!-- NEW WRAPPER -->
+                <div class="player-center">
+                    <div class="player-controls">
+                        <button id="btnPrev" class="player-btn">⏮</button>
+                        <button id="btnPlayPause" class="player-btn">⏯</button>
+                        <button id="btnNext" class="player-btn">⏭</button>
+                    </div>
+
+                    <div class="player-progress">
+                        <div class="player-progress-container">
+                            <div class="player-progress-bar">
+                                <div class="player-progress-fill" id="playerProgressFill"></div>
+                            </div>
+                            <div class="progress-hover-ball"></div>
+                        </div>
+
+                        <div class="player-time">
+                            <span id="currentTime">0:00</span>
+                            <span id="totalTime">0:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-volume">
+                    <input type="range" id="volumeSlider" min="0" max="100" value="80">
+                </div>
+            </div>
+        </main>
+
+
+        <footer class="footer-bg">
+            <div class="footer-section footer-left">
+                <div class="credits-footer">Site feito por Igor Rangel (@thyrogi)</div>
+            </div>
+
+            <div class="footer-section footer-center">
+                <div class="footer-title">Explore mais:</div>
+
+                <div class="footer-options-container">
+                    <div class="footer-options"><a href="../index.html">Home</a></div>
+                    <div class="footer-options"><a href="musicas.html">Músicas</a></div>
+                    <div class="footer-options"><a href="extras.html">Extras</a></div>
+                    <div class="footer-options"><a href="sobre.html">Sobre</a></div>
+                </div>
+            </div>
+
+            <div class="quotebox">
+                <span class="quote">"Hi. Bye. Sigh. Hawaii."</span>
+                <span class="underquote">"Hi. Bye. Simon why?"</span>
+            </div>
+
+            <div class="disclaimer-footer">
+                Imagens e músicas pertencem aos respectivos donos, este é um pequeno projeto
+                educacional feito para apresentação em aula.
+            </div>
+
+            <button class="button-top" id="backToTop">↑</button>
+        </footer>
+    </body>
+    <script src="../script/script.js"></script>
+</html>
