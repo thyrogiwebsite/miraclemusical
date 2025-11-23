@@ -242,7 +242,7 @@ header {
 }
 
 .player-page {
-    min-height: calc(100vh - 12vh - 12vh); /* adjust if your header/footer height differ */
+    min-height: calc(100vh - 12vh - 12vh);
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -253,7 +253,6 @@ header {
     overflow-x: hidden;
 }
 
-/* Main album block */
 .album-player {
     background-color: rgba(0, 0, 0, 0.65);
     border-radius: 16px;
@@ -264,7 +263,6 @@ header {
     width: 90%;
 }
 
-/* Header: cover + info */
 .album-header {
     display: flex;
     align-items: center;
@@ -297,7 +295,6 @@ header {
     opacity: 0.6;
 }
 
-/* Tracklist */
 .tracklist {
     list-style: none;
     margin: 0;
@@ -340,12 +337,10 @@ header {
     opacity: 0.7;
 }
 
-/* active track - uses your existing .rainbow-text too */
 .track-title.active {
     font-weight: 600;
 }
 
-/* Bottom player bar */
 .bottom-player {
     position: fixed;
     bottom: 0;
@@ -355,9 +350,8 @@ header {
     display: none;
     align-items: center;
 
-    /* NEW: grid layout */
     display: grid;
-    grid-template-columns: 240px auto 160px; /* Title | Progress | Volume */
+    grid-template-columns: 240px auto 160px;
     gap: 16px;
 
     padding: 12px 32px;
@@ -462,37 +456,10 @@ header {
     cursor: pointer;
     width: 100%;
 }
-
-/* Glow ball on hover */
-.player-progress-bar::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    left: var(--hover-x, -20px);
-    
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    
-    background: white;
-    box-shadow: 0 0 10px white, 0 0 20px white;
-
-    opacity: 0;
-    pointer-events: none;
-
-    transition: opacity 0.15s ease;
-}
-.player-progress-bar:hover::after {
-    opacity: 1;
-}
-
 .player-progress-container {
     position: relative;
     width: 100%;
 }
-/* Glow ball that follows cursor */
 .progress-hover-ball {
     position: absolute;
     top: 50%;
@@ -544,7 +511,6 @@ header {
     align-items: center;
 }
 
-/* RAINBOW ANIMATED SLIDER BACKGROUND */
 #volumeSlider {
     -webkit-appearance: none;
     appearance: none;
@@ -556,7 +522,6 @@ header {
     position: relative;
 }
 
-/* Rainbow overlay */
 #volumeSlider::before {
     content: "";
     position: absolute;
@@ -572,9 +537,9 @@ header {
     animation: rainbowMove 8s linear infinite;
     pointer-events: none;
     border-radius: 10px;
+    overflow: hidden;
 }
 
-/* Thumb */
 #volumeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
