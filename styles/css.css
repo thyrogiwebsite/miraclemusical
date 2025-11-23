@@ -444,7 +444,7 @@ header {
 
 
 .player-progress {
-    width: 95%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -705,4 +705,5 @@ header {
 .button-top.show {
     opacity: 1;
     pointer-events: auto;
+
 }
