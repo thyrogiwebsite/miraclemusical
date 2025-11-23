@@ -506,6 +506,7 @@ header {
 }
 
 .player-volume {
+    position: relative;
     width: 120px;
     display: flex;
     justify-content: center;
@@ -523,22 +524,18 @@ header {
     position: relative;
 }
 
-#volumeSlider::before {
-    content: "";
+.volume-fill {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    width: var(--fill-percent, 0%);
-    background: linear-gradient(
-        90deg,
-        red, orange, yellow, green, cyan, blue, purple, red
-    );
+    width: var(--fill-percent, 80%);
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, purple, red);
     background-size: 300% 100%;
     animation: rainbowMove 8s linear infinite;
-    pointer-events: none;
     border-radius: 10px;
-    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
 }
 
 #volumeSlider::-webkit-slider-thumb {
@@ -705,5 +702,4 @@ header {
 .button-top.show {
     opacity: 1;
     pointer-events: auto;
-
 }

@@ -5,7 +5,7 @@
   { "title": "White Ball", "artists": "Miracle Musical", "file": "../songs/4WhiteBall.mp3", "duration": "3:35" },
   { "title": "Murders", "artists": "Miracle Musical", "file": "../songs/5Murders.mp3", "duration": "3:42" },
   { "title": "宇宙ステーションのレベル7", "artists": "Miracle Musical", "file": "../songs/6SpaceStationLevel7.mp3", "duration": "3:23" },
-  { "title": "The Mind Electric", "file": "../songs/7TheMindElectric.mp3", "duration": "6:13" },
+  { "title": "The Mind Electric", "artists": "Miracle Musical", "file": "../songs/7TheMindElectric.mp3", "duration": "6:13" },
   { "title": "Labyrinth", "artists": "Miracle Musical (ft. Shane MauX, KAYE)", "file": "../songs/8Labyrinth.mp3", "duration": "2:32" },
   { "title": "Time Machine", "artists": "Miracle Musical", "file": "../songs/9TimeMachine.mp3", "duration": "4:12" },
   { "title": "Stranded Lullaby", "artists": "Miracle Musical", "file": "../songs/10StrandedLullaby.mp3", "duration": "3:40" },

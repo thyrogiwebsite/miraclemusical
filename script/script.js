@@ -229,3 +229,14 @@ audio.addEventListener("ended", () => {
     btnPlayPause.textContent = "▶";
   }
 });
+
+function updateSliderFill() {
+  const percent = (volumeSlider.value / volumeSlider.max) * 100;
+  volumeSlider.style.setProperty("--fill-percent", percent + "%");
+  document.querySelector(".volume-fill").style.width = percent + "%";
+}
+volumeSlider.addEventListener("input", () => {
+  audio.volume = sliderToVolume(volumeSlider.value);
+  updateSliderFill();
+});
+updateSliderFill();
