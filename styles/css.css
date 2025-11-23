@@ -441,7 +441,6 @@ header {
 }
 
 
-/* Progress bar */
 .player-progress {
     width: 95%;
     display: flex;
@@ -474,7 +473,7 @@ header {
     transition: opacity 0.15s ease;
 }
 
-.player-progress-container:hover .progress-hover-ball {
+.player-progress-container:hover{
     opacity: 1;
 }
 
