@@ -525,7 +525,7 @@ header {
     animation: rainbowMove 8s linear infinite;
     border-radius: 10px;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
 }
 
 #volumeSlider {
@@ -537,7 +537,7 @@ header {
     background: rgb(54, 54, 54);
     outline: none;
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
 
 #volumeSlider::-webkit-slider-thumb {
@@ -757,3 +757,4 @@ header {
     pointer-events: auto;
 
 }
+
