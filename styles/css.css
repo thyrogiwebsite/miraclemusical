@@ -549,7 +549,7 @@ header {
     box-shadow: 0 0 10px white;
     cursor: pointer;
     position: relative;
-    z-index: 2;
+    z-index: 9;
 }
 
 #volumeSlider::-moz-range-thumb {
@@ -561,7 +561,7 @@ header {
     box-shadow: 0 0 10px white;
     cursor: pointer;
     position: relative;
-    z-index: 2;
+    z-index: 9;
 }
 
 @keyframes rainbowMove {
@@ -702,4 +702,5 @@ header {
 .button-top.show {
     opacity: 1;
     pointer-events: auto;
+
 }
