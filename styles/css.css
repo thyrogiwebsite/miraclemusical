@@ -390,6 +390,7 @@ header {
 #playerSongArtist {
     opacity: 0.7;
     font-size: 0.75em;
+    max-width: fit-content;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -754,4 +755,5 @@ header {
 .button-top.show {
     opacity: 1;
     pointer-events: auto;
+
 }
