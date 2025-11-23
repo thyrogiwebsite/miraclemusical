@@ -1,13 +1,13 @@
 [
-  { "title": "Introduction to the Snow", "file": "../songs/1IntroductionToTheSnow.mp3", "duration": "1:41" },
-  { "title": "Isle Unto Thyself", "file": "../songs/2IsleUntoThyself.mp3", "duration": "3:47" },
-  { "title": "Black Rainbows", "file": "../songs/3BlackRainbows.mp3", "duration": "2:29" },
-  { "title": "White Ball", "file": "../songs/4WhiteBall.mp3", "duration": "3:35" },
-  { "title": "Murders", "file": "../songs/5Murders.mp3", "duration": "3:42" },
-  { "title": "宇宙ステーションのレベル7", "file": "../songs/6SpaceStationLevel7.mp3", "duration": "3:23" },
+  { "title": "Introduction to the Snow", "artists": "Miracle Musical", "file": "../songs/1IntroductionToTheSnow.mp3", "duration": "1:41" },
+  { "title": "Isle Unto Thyself", "artists": "Miracle Musical", "file": "../songs/2IsleUntoThyself.mp3", "duration": "3:47" },
+  { "title": "Black Rainbows", "artists": "Miracle Musical", "file": "../songs/3BlackRainbows.mp3", "duration": "2:29" },
+  { "title": "White Ball", "artists": "Miracle Musical", "file": "../songs/4WhiteBall.mp3", "duration": "3:35" },
+  { "title": "Murders", "artists": "Miracle Musical", "file": "../songs/5Murders.mp3", "duration": "3:42" },
+  { "title": "宇宙ステーションのレベル7", "artists": "Miracle Musical", "file": "../songs/6SpaceStationLevel7.mp3", "duration": "3:23" },
   { "title": "The Mind Electric", "file": "../songs/7TheMindElectric.mp3", "duration": "6:13" },
-  { "title": "Labyrinth", "file": "../songs/8Labyrinth.mp3", "duration": "2:32" },
-  { "title": "Time Machine", "file": "../songs/9TimeMachine.mp3", "duration": "4:12" },
-  { "title": "Stranded Lullaby", "file": "../songs/10StrandedLullaby.mp3", "duration": "3:40" },
-  { "title": "Dream Sweet in Sea Major", "file": "../songs/11DreamSweetInSeaMajor.mp3", "duration": "7:00" }
+  { "title": "Labyrinth", "artists": "Miracle Musical (ft. Shane MauX, KAYE)", "file": "../songs/8Labyrinth.mp3", "duration": "2:32" },
+  { "title": "Time Machine", "artists": "Miracle Musical", "file": "../songs/9TimeMachine.mp3", "duration": "4:12" },
+  { "title": "Stranded Lullaby", "artists": "Miracle Musical", "file": "../songs/10StrandedLullaby.mp3", "duration": "3:40" },
+  { "title": "Dream Sweet in Sea Major", "artists": "Miracle Musical", "file": "../songs/11DreamSweetInSeaMajor.mp3", "duration": "7:00" }
 ]

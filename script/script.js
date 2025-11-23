@@ -88,7 +88,7 @@ function playTrack(index) {
   bottomPlayer.classList.add("show");
 
   playerSongTitle.textContent = track.title;
-  playerSongArtist.textContent = "Miracle Musical";
+  playerSongArtist.textContent = track.artists;
   btnPlayPause.textContent = "⏸";
 
   updateActiveTrackHighlight();
