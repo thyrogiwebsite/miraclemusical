@@ -372,11 +372,14 @@ header {
     min-width: fit-content;
     margin-right: 15px;
     flex-shrink: 0;
-
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     line-height: 1.2;
+    
+    width: auto;
+    max-width: 240px;
 }
 
 #playerSongTitle {
@@ -384,15 +387,44 @@ header {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    display: block;
+    width: 100%;
 }
 
 #playerSongArtist {
     opacity: 0.7;
     font-size: 0.65em;
-    max-width: fit-content;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    
+    display: block;
+    width: 100%;
+}
+
+.bottom-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    display: none;
+    align-items: center;
+    
+    grid-template-columns: auto 1fr 160px;
+    gap: 16px;
+    
+    padding: 12px 32px;
+    background-color: rgba(0,0,0,0.75);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9em;
+    z-index: 50;
+}
+
+.bottom-player.show {
+    display: grid;
 }
 
 .player-center {
@@ -401,6 +433,16 @@ header {
     align-items: center;
     justify-content: center;
     gap: 6px;
+    
+    flex: 1;
+    min-width: 0;
+}
+
+.player-progress {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .player-controls {
@@ -442,13 +484,6 @@ header {
     background: rgba(255,255,255,0.35);
 }
 
-
-.player-progress {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
 .player-progress-bar {
     height: 5px;
     background-color: rgba(255,255,255,0.2);
