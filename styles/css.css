@@ -369,8 +369,7 @@ header {
 }
 
 .player-info {
-    min-width: 400px;
-    max-width: fit-content;
+    min-width: 450px;
     flex-shrink: 0;
 
     display: flex;
@@ -911,5 +910,6 @@ header {
     pointer-events: auto;
 
 }
+
 
 
