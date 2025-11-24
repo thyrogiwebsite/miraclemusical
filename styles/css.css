@@ -509,16 +509,17 @@ header {
 .player-volume {
     position: relative;
     width: 120px;
-    height: 6px; /* taller to fit the thumb */
+    height: 20px;
     display: flex;
-    align-items: center; /* center the thumb vertically */
+    align-items: center;
+    justify-content: center;
 }
 
 .volume-fill {
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 0;
-    height: 100%;
+    height: 8px; /* Slightly thicker than the track */
     width: 80%;
     background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, purple, red);
     background-size: 300% 100%;
@@ -526,44 +527,71 @@ header {
     border-radius: 10px;
     pointer-events: none;
     z-index: 1;
+    transform: translateY(-50%);
 }
 
 #volumeSlider {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 6px;
+    height: 6px; /* Gray track stays at 6px */
     border-radius: 10px;
-    background: rgb(54, 54, 54);
+    background: rgba(255, 255, 255, 0.15);
     outline: none;
     position: relative;
-    z-index: 0;
+    z-index: 3;
+    cursor: pointer;
+    margin: 0;
 }
 
 #volumeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: white;
     border: 2px solid #fff;
-    box-shadow: 0 0 10px white;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
     cursor: pointer;
     position: relative;
-    z-index: 2;
+    z-index: 4;
+    transition: all 0.2s ease;
+}
+
+#volumeSlider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 1);
 }
 
 #volumeSlider::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: white;
     border: 2px solid #fff;
-    box-shadow: 0 0 10px white;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
     cursor: pointer;
     position: relative;
-    z-index: 2;
+    z-index: 4;
+    transition: all 0.2s ease;
+}
+
+#volumeSlider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 1);
+}
+
+#volumeSlider::-webkit-slider-track {
+    -webkit-appearance: none;
+    background: transparent;
+    height: 6px;
+}
+
+#volumeSlider::-moz-range-track {
+    background: transparent;
+    height: 6px;
+    border: none;
 }
 
 @keyframes rainbowMove {
@@ -571,7 +599,7 @@ header {
     100% { background-position: 300% 0; }
 }
 
-/* LYRICS PANEL LAYOUT */
+/* LYRICS PANEL LAYOUT - IMPROVED */
 .player-layout {
     display: flex;
     gap: 24px;
@@ -579,6 +607,7 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     align-items: flex-start;
+    min-height: 500px; /* Ensure consistent layout height */
 }
 
 .album-player {
@@ -590,6 +619,7 @@ header {
     margin-bottom: 0;
     max-width: none;
     width: auto;
+    height: fit-content;
 }
 
 .lyrics-panel {
@@ -597,14 +627,16 @@ header {
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 16px;
     overflow: hidden;
-    transition: all 0.3s ease;
-    min-height: 400px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 500px; /* Fixed height for consistent sizing */
     display: flex;
     flex-direction: column;
+    min-height: 500px; /* Ensure minimum height */
 }
 
 .lyrics-panel.collapsed {
-    min-height: auto;
+    height: 50px; /* Fixed collapsed height - just the header */
+    min-height: 50px;
     flex: 0 0 auto;
 }
 
@@ -616,7 +648,10 @@ header {
     justify-content: space-between;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.3s ease;
+    height: 50px; /* Fixed header height */
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .lyrics-header:hover {
@@ -631,7 +666,8 @@ header {
     cursor: pointer;
     padding: 4px 8px;
     border-radius: 4px;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
 }
 
 .collapse-btn:hover {
@@ -655,8 +691,56 @@ header {
     padding: 20px;
     flex: 1;
     overflow-y: auto;
-    max-height: 500px;
+    max-height: 450px; /* Fixed content area height */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lyrics-panel.collapsed .lyrics-content {
+    max-height: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+#lyricsText {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.9em;
+    text-align: left;
+    white-space: pre-line;
+    min-height: 50px; /* Ensure some minimum content height */
+}
+
+/* Enhanced scrollbar styling for lyrics */
+.lyrics-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lyrics-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    margin: 4px 0;
+}
+
+.lyrics-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+}
+
+.lyrics-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+/* Firefox scrollbar */
+.lyrics-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
 }
 
 .lyrics-panel.collapsed .lyrics-content {
