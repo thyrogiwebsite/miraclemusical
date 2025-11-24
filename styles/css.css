@@ -657,21 +657,23 @@ header {
 
 .lyrics-panel {
     flex: 0 0 35%;
-    min-width: 500px;
+    min-width: 700px;
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 16px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    height: auto;
+    height: 500px;
     display: flex;
     flex-direction: column;
+    max-height: 500px;
 }
 
 .lyrics-panel.collapsed {
     height: 50px;
     min-height: 50px;
     flex: 0 0 35%;
-    min-width: 500px;
+    min-width: 700px;
+    max-height: 50px;
 }
 
 .lyrics-header {
@@ -725,13 +727,16 @@ header {
     padding: 20px;
     flex: 1;
     overflow-y: auto;
-    max-height: calc(100% - 50px);
+    height: calc(100% - 50px);
+    max-height: 450px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
     transform: translateY(0);
+    box-sizing: border-box;
 }
 
 .lyrics-panel.collapsed .lyrics-content {
+    height: 0;
     max-height: 0;
     padding: 0 20px;
     overflow: hidden;
@@ -782,7 +787,6 @@ header {
 
 
     /* FOOTER */
-
 .footer-bg {
     background-image: url(../img/Hawaii_Part-FOOTER_BG2.png);
     background-color: #000000;
