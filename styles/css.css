@@ -657,7 +657,7 @@ header {
 
 .lyrics-panel {
     flex: 0 0 35%;
-    min-width: 700px;
+    min-width: 20vw;
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 16px;
     overflow: hidden;
@@ -672,7 +672,7 @@ header {
     height: 50px;
     min-height: 50px;
     flex: 0 0 35%;
-    min-width: 700px;
+    min-width: 20vw;
     max-height: 50px;
 }
 
@@ -914,4 +914,5 @@ header {
     pointer-events: auto;
 
 }
+
 
