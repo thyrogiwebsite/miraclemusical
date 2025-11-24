@@ -518,7 +518,7 @@ header {
     position: absolute;
     top: 50%;
     left: 0;
-    height: 8px; /* Slightly thicker than the track */
+    height: 8px;
     width: 80%;
     background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, purple, red);
     background-size: 300% 100%;
@@ -533,7 +533,7 @@ header {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 6px; /* Gray track stays at 6px */
+    height: 6px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.15);
     outline: none;
@@ -598,7 +598,6 @@ header {
     100% { background-position: 300% 0; }
 }
 
-/* LYRICS PANEL LAYOUT - IMPROVED */
 .player-layout {
     display: flex;
     gap: 24px;
@@ -606,7 +605,7 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     align-items: flex-start;
-    min-height: 500px; /* Ensure consistent layout height */
+    min-height: 500px;
 }
 
 .album-player {
@@ -622,22 +621,22 @@ header {
 }
 
 .lyrics-panel {
-    flex: 0 0 35%; /* Fixed width percentage */
-    min-width: 500px; /* Minimum width to ensure it's always wide enough */
+    flex: 0 0 35%;
+    min-width: 500px;
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 16px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    height: auto; /* Let height be determined by content */
+    height: auto;
     display: flex;
     flex-direction: column;
 }
 
 .lyrics-panel.collapsed {
-    height: 50px; /* Fixed collapsed height - just the header */
+    height: 50px;
     min-height: 50px;
-    flex: 0 0 35%; /* Maintain same width when collapsed */
-    min-width: 500px; /* Same minimum width */
+    flex: 0 0 35%;
+    min-width: 500px;
 }
 
 .lyrics-header {
@@ -649,9 +648,9 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
-    height: 50px; /* Fixed header height */
+    height: 50px;
     box-sizing: border-box;
-    flex-shrink: 0; /* Prevent header from shrinking */
+    flex-shrink: 0;
 }
 
 .lyrics-header:hover {
@@ -691,7 +690,7 @@ header {
     padding: 20px;
     flex: 1;
     overflow-y: auto;
-    max-height: calc(100% - 50px); /* Fill remaining height after header */
+    max-height: calc(100% - 50px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
     transform: translateY(0);
@@ -711,10 +710,9 @@ header {
     font-size: 0.85em;
     text-align: left;
     white-space: pre-line;
-    min-height: 50px; /* Ensure some minimum content height */
+    min-height: 50px;
 }
 
-/* Enhanced scrollbar styling for lyrics */
 .lyrics-content::-webkit-scrollbar {
     width: 8px;
 }
@@ -737,43 +735,9 @@ header {
     transform: scale(1.1);
 }
 
-/* Firefox scrollbar */
 .lyrics-content {
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
-}
-
-.lyrics-panel.collapsed .lyrics-content {
-    max-height: 0;
-    padding: 0 20px;
-    overflow: hidden;
-}
-
-#lyricsText {
-    margin: 0;
-    line-height: 1.6;
-    font-size: 0.9em;
-    text-align: left;
-    white-space: pre-line;
-}
-
-/* Scrollbar styling for lyrics */
-.lyrics-content::-webkit-scrollbar {
-    width: 6px;
-}
-
-.lyrics-content::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-}
-
-.lyrics-content::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
-}
-
-.lyrics-content::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
 }
 
     /* CONTENT (extras page) */
