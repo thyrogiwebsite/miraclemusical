@@ -381,7 +381,6 @@ header {
 
 #playerSongTitle {
     font-weight: 600;
-    font-size: 0.95em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -389,7 +388,7 @@ header {
 
 #playerSongArtist {
     opacity: 0.7;
-    font-size: 0.75em;
+    font-size: 0.65em;
     max-width: fit-content;
     white-space: nowrap;
     overflow: hidden;
@@ -623,21 +622,22 @@ header {
 }
 
 .lyrics-panel {
-    flex: 0 0 35%;
+    flex: 0 0 35%; /* Fixed width percentage */
+    min-width: 500px; /* Minimum width to ensure it's always wide enough */
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 16px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 500px; /* Fixed height for consistent sizing */
+    height: auto; /* Let height be determined by content */
     display: flex;
     flex-direction: column;
-    min-height: 500px; /* Ensure minimum height */
 }
 
 .lyrics-panel.collapsed {
     height: 50px; /* Fixed collapsed height - just the header */
     min-height: 50px;
-    flex: 0 0 auto;
+    flex: 0 0 35%; /* Maintain same width when collapsed */
+    min-width: 500px; /* Same minimum width */
 }
 
 .lyrics-header {
@@ -691,7 +691,7 @@ header {
     padding: 20px;
     flex: 1;
     overflow-y: auto;
-    max-height: 450px; /* Fixed content area height */
+    max-height: calc(100% - 50px); /* Fill remaining height after header */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
     transform: translateY(0);
@@ -707,8 +707,8 @@ header {
 
 #lyricsText {
     margin: 0;
-    line-height: 1.6;
-    font-size: 0.9em;
+    line-height: 1.5;
+    font-size: 0.85em;
     text-align: left;
     white-space: pre-line;
     min-height: 50px; /* Ensure some minimum content height */
