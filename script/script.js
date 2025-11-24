@@ -229,13 +229,12 @@ function sliderToVolume(v) {
 function updateSliderFill() {
   const percent = (volumeSlider.value / volumeSlider.max) * 100;
   volumeSlider.style.setProperty("--fill-percent", percent + "%");
+  document.querySelector(".volume-fill").style.width = percent + "%";
 }
-
 volumeSlider.addEventListener("input", () => {
   audio.volume = sliderToVolume(volumeSlider.value);
   updateSliderFill();
 });
-
 updateSliderFill();
 
 audio.addEventListener("ended", () => {
@@ -246,13 +245,45 @@ audio.addEventListener("ended", () => {
   }
 });
 
-function updateSliderFill() {
-  const percent = (volumeSlider.value / volumeSlider.max) * 100;
-  volumeSlider.style.setProperty("--fill-percent", percent + "%");
-  document.querySelector(".volume-fill").style.width = percent + "%";
-}
-volumeSlider.addEventListener("input", () => {
-  audio.volume = sliderToVolume(volumeSlider.value);
-  updateSliderFill();
+// LYRICS PANEL
+const lyricsPanel = document.getElementById("lyricsPanel");
+const lyricsHeader = document.getElementById("lyricsHeader");
+const collapseBtn = document.getElementById("collapseBtn");
+const lyricsContent = document.getElementById("lyricsContent");
+const lyricsSongTitle = document.getElementById("lyricsSongTitle");
+
+// Toggle lyrics panel collapse
+lyricsHeader.addEventListener("click", () => {
+    lyricsPanel.classList.toggle("collapsed");
+    collapseBtn.textContent = lyricsPanel.classList.contains("collapsed") ? "⏷" : "▲";
 });
-updateSliderFill();
+
+// Update the playTrack function to also update the lyrics panel
+function playTrack(index) {
+    const track = tracks[index];
+    if (!track) return;
+
+    currentIndex = index;
+    audio.src = track.file;
+    audio.currentTime = 0;
+    audio.play();
+
+    bottomPlayer.classList.add("show");
+    playerSongTitle.textContent = track.title;
+    playerSongArtist.textContent = track.artists;
+    btnPlayPause.textContent = "⏸";
+
+    // Update lyrics panel
+    lyricsSongTitle.textContent = track.title;
+    if (track.lyrics) {
+        lyricsText.innerHTML = track.lyrics.replace(/\n/g, "<br>");
+    } else {
+        lyricsText.textContent = "No lyrics available.";
+    }
+
+    // Ensure lyrics panel is expanded when new song plays
+    lyricsPanel.classList.remove("collapsed");
+    collapseBtn.textContent = "▲";
+
+    updateActiveTrackHighlight();
+}

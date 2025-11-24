@@ -507,61 +507,63 @@ header {
 }
 
 .player-volume {
-  position: relative;
-  width: 120px;
-  height: 6px; /* matches slider height */
-}
-
-#volumeSlider {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 6px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.15); /* grey track */
-  outline: none;
-  position: relative;
-  z-index: 1; /* behind rainbow */
+    position: relative;
+    width: 120px;
+    height: 6px; /* taller to fit the thumb */
+    display: flex;
+    align-items: center; /* center the thumb vertically */
 }
 
 .volume-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: var(--fill-percent, 80%);
-  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, purple, red);
-  background-size: 300% 100%;
-  animation: rainbowMove 8s linear infinite;
-  border-radius: 10px;
-  pointer-events: none;
-  z-index: 2; /* rainbow on top of grey track */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80%;
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, purple, red);
+    background-size: 300% 100%;
+    animation: rainbowMove 8s linear infinite;
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#volumeSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 10px;
+    background: rgb(54, 54, 54);
+    outline: none;
+    position: relative;
+    z-index: 0;
 }
 
 #volumeSlider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: white;
-  border: 2px solid #fff;
-  box-shadow: 0 0 10px white;
-  cursor: pointer;
-  position: relative;
-  z-index: 3; /* thumb on top of rainbow */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px white;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
 #volumeSlider::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: white;
-  border: 2px solid #fff;
-  box-shadow: 0 0 10px white;
-  cursor: pointer;
-  position: relative;
-  z-index: 3;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px white;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
 @keyframes rainbowMove {
@@ -569,55 +571,125 @@ header {
     100% { background-position: 300% 0; }
 }
 
-.player-lyrics-container {
-    width: 100%;
-    margin-top: 12px;
-    text-align: left;
-    z-index: 9;
+/* LYRICS PANEL LAYOUT */
+.player-layout {
+    display: flex;
+    gap: 24px;
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
 }
 
-.lyrics-box {
-    max-height: 0;
-    opacity: 0;
+.album-player {
+    flex: 0 0 60%;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 16px;
+    padding: 24px 32px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    max-width: none;
+    width: auto;
+}
+
+.lyrics-panel {
+    flex: 0 0 35%;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 16px;
     overflow: hidden;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-    background-color: rgba(0,0,0,0.75);
-    color: white;
-    padding: 0 16px;
-    font-size: 0.85em;
-    margin-top: 8px;
+    transition: all 0.3s ease;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
-.lyrics-box.show {
-    max-height: 300px;
-    opacity: 1;
-    padding: 8px 16px;
+.lyrics-panel.collapsed {
+    min-height: auto;
+    flex: 0 0 auto;
 }
 
-#btnLyrics {
-    width: 5em;
-    height: 2em;
-    border-radius: 6px;
-    display: inline-flex;
-    justify-content: center;
+.lyrics-header {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 12px 16px;
+    display: flex;
     align-items: center;
-    font-size: 1rem;
-    background: rgba(255,255,255,0.08);
-    color: white;
-    border: none;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    transition: background-color 0.2s ease;
 }
 
-#btnLyrics:hover {
-    background: rgba(255,255,255,0.25);
-    transform: scale(1.15);
-    box-shadow: 0 0 10px rgba(255,255,255,0.35);
+.lyrics-header:hover {
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
-#btnLyrics:active {
-    transform: scale(1.05);
-    background: rgba(255,255,255,0.35);
+.collapse-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.collapse-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.lyrics-song-title {
+    font-size: 0.9em;
+    font-weight: 600;
+    opacity: 0.9;
+    text-align: right;
+    flex: 1;
+    margin-right: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lyrics-content {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 500px;
+    transition: all 0.3s ease;
+}
+
+.lyrics-panel.collapsed .lyrics-content {
+    max-height: 0;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+#lyricsText {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.9em;
+    text-align: left;
+    white-space: pre-line;
+}
+
+/* Scrollbar styling for lyrics */
+.lyrics-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lyrics-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.lyrics-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.lyrics-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
     /* CONTENT (extras page) */
@@ -753,4 +825,6 @@ header {
 .button-top.show {
     opacity: 1;
     pointer-events: auto;
+
 }
+
