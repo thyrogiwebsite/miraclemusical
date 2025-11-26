@@ -928,11 +928,11 @@ header {
     scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
 }
 
-    /* CONTENT (extras page) */
-
-
     /* CONTENT (about page) */
-
+.justified-about {
+    text-align: justify;
+    width: 30vw;
+}
 
     /* FOOTER */
 .footer-bg {
