@@ -22,7 +22,7 @@ const audio = new Audio();
 fetch("../script/data.json")
   .then(res => {
     if (!res.ok) {
-      throw new Error("Failed to load data.json: " + res.status);
+      throw new Error("erro erro: " + res.status);
     }
     return res.json();
   })
@@ -102,7 +102,7 @@ function playTrack(index) {
     if (track.lyrics) {
         lyricsText.innerHTML = track.lyrics.replace(/\n/g, "<br>");
     } else {
-        lyricsText.textContent = "No lyrics available.";
+        lyricsText.textContent = "sem letra.";
     }
 
     updateLoreSection(track);
@@ -254,6 +254,6 @@ function updateLoreSection(track) {
     if (track && track.lore) {
         loreContent.textContent = track.lore;
     } else {
-        loreContent.textContent = "No lore information available for this track.";
+        loreContent.textContent = "Não tem nada aqui doido";
     }
 }
