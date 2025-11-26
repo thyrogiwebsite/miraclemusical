@@ -98,7 +98,6 @@ function playTrack(index) {
     playerSongArtist.textContent = track.artists;
     btnPlayPause.textContent = "⏸";
 
-    // Update lyrics panel
     lyricsSongTitle.textContent = track.title;
     if (track.lyrics) {
         lyricsText.innerHTML = track.lyrics.replace(/\n/g, "<br>");
@@ -106,7 +105,8 @@ function playTrack(index) {
         lyricsText.textContent = "No lyrics available.";
     }
 
-    // Ensure lyrics panel is expanded when new song plays
+    updateLoreSection(track);
+
     lyricsPanel.classList.remove("collapsed");
     collapseBtn.textContent = "▲";
 
@@ -248,3 +248,12 @@ audio.addEventListener("ended", () => {
     btnPlayPause.textContent = "▶";
   }
 });
+
+function updateLoreSection(track) {
+    const loreContent = document.getElementById("loreContent");
+    if (track && track.lore) {
+        loreContent.textContent = track.lore;
+    } else {
+        loreContent.textContent = "No lore information available for this track.";
+    }
+}
