@@ -466,6 +466,7 @@ header {
     border-radius: 8px;
     padding: 16px;
     font-size: 0.8em;
+    text-align: justify;
     line-height: 1.5;
     max-height: 200px;
     overflow-y: auto;
